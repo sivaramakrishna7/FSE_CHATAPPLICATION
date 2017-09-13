@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>FSE Chat Room</title>
+    <link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- <script src="js/index.js"></script> -->
+	<script src="js/data.json"></script>
+	<script src="js/user.json"></script>
+	<script type="text/javascript">
+	function redirectUrl()
+	{	
+		alert('Redirecting to Home');
+		window.location = "/";  		
+		return false;
+	}
+	
+$(document).ready(function() {
+	//alert('Ajax');
+	//alert(jsonObject.start.data.length);
+	var user = jsonUserObject.start.data[0].u_name;
+	document.getElementById("chat_header").innerHTML = "Welcome "+user+"..!!";
+	document.getElementById("username").value = user;
+	var n = jsonObject.start.data.length;
+	var ul = document.getElementById("msglist");
+	//for(var i=0; i<n; i++)
+	//{
+	//	  var li = document.createElement("li");
+	//	  li.appendChild(document.createTextNode(jsonObject.start.data[i].u_name+ "   " + jsonObject.start.data[i].u_msg+ "   " + jsonObject.start.data[i].u_msg_dt));
+	//	  ul.appendChild(li);
+	//}
+		 // var table = document.createElement('table');
+			for (var i = 0; i < n; i++){
+				var tr = document.createElement('tr');   
+
+				var td1 = document.createElement('td');
+				var td2 = document.createElement('td');
+				var td3 = document.createElement('td');
+
+				var text1 = document.createTextNode(jsonObject.start.data[i].u_name);
+				var text2 = document.createTextNode(jsonObject.start.data[i].u_msg);
+				var text3 = document.createTextNode(jsonObject.start.data[i].u_msg_dt);
+				
+				td1.appendChild(text1);
+				td2.appendChild(text2);
+				td3.appendChild(text3);
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+
+				ul.appendChild(tr);
+			}
+			//ul.appendChild(table);
+	
+	});
+	//$(document).ready(function() {
+	//alert('Ajax ');
+	//});
+	
+	   //var rssentries=jsondata.items;
+	  // var output='<ul>';
+	  // for (var i=0; i<rssentries.length; i++){
+		//output+='<li>';
+		//output+='<a href="'+rssentries[i].link+'">';
+		//output+=rssentries[i].title+'</a>';
+		//output+='</li>';
+	  // }
+	  // output+='</ul>';
+	   //document.getElementById("result").innerHTML=output;
+    </script>
+</head>
+
+<body>
+<div class="container">
+	<section id="content">
+		<form action="/ChatRoom" method="post">
+			<h1 id="chat_header"></h1>
+			<div>
+				<p style="text-align:left;"> <b> Posts: </b> </p>
+			</div>
+			<div>
+			<table id="msglist" border="1">
+			<td><b>User Name</b></td>
+			<td><b>Message</b></td>
+			<td><b>Posted Time</b></td>
+			</table>
+			</div>
+			<div>
+				<p style="text-align:left;" > <b>Please post your comments here: </b></p>
+			</div>
+			<div>
+				<input type="text" id="username" value="" name="username" readonly="true"/>
+			</div>
+			<div>
+				<input type="text" placeholder="Enter your message" name="usermsg" />
+			</div>
+			<div>
+				<input type="submit" value="Post" />
+				<input type="submit" id="btnCancel" value="Logout" onclick="return redirectUrl()" formnovalidate/>
+				
+			</div>
+		</form><!-- form -->
+		<div class="button">
+			<a href="#">Developed by Siva</a>
+		</div><!-- button -->
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+</html>

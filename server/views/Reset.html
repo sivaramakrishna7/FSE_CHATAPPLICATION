@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>FSE Chat Room</title>
+    <link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript">
+	function redirectUrl()
+	{
+		window.location = "/";    
+		return false;
+	}
+    </script>
+</head>
+
+<body>
+<div class="container">
+	<section id="content">
+		<form action="resetForm">
+			<h1>Reset Password</h1>
+			<div>
+				<input type="text" placeholder="Andrew ID" required="" id="andrewid" />
+			</div>
+			<div>
+				<input type="submit" value="Submit" > </input>
+				<input type="submit" value="Cancel" onclick="return redirectUrl()" formnovalidate> </input>
+			</div>
+		</form><!-- form -->
+		<div class="button">
+			<a href="#">Developed by Siva</a>
+		</div><!-- button -->
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+</html>

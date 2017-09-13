@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>FSE Chat Room</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="container">
+	<section id="content">
+		<form id="loginForm" action="/Login" method="post">
+			<h1>Login Form</h1>
+			<div>
+				<input type="text" placeholder="Username" required="" name="lg_username" />
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="" name="lg_password" />
+			</div>
+			<div>
+				<input type="submit" value="Log in" />
+				<a href="/Reset">Lost your password?</a>
+				<a href="/Register">Register</a>
+			</div>
+		</form><!-- form -->
+		<div class="button">
+			<a href="#">Developed by Siva</a>
+		</div><!-- button -->
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+</html>
